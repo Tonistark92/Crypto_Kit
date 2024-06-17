@@ -24,6 +24,17 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val cipherManager = CipherManager()
+        // secure api key from git repos using  BuildConfig and local.properties
+        val apiKey = BuildConfig.API_KEY
+        val tokenManager = TokenManager(this)
+
+// Encrypt and store the token
+        val token = "your_auth_token_here"
+        tokenManager.encryptToken(token)
+
+// Decrypt the token
+        val decryptedToken = tokenManager.decryptToken()
+        println("Decrypted Token: $decryptedToken")
         setContent {
             CryptoExampleTheme {
                 var messageToEncrypt by remember {
@@ -49,7 +60,7 @@ class MainActivity : ComponentActivity() {
                         Button(onClick = {
                             val bytes = messageToEncrypt.encodeToByteArray()
                             val file = File(filesDir, "secret.txt")
-                            if(!file.exists()) {
+                            if (!file.exists()) {
                                 file.createNewFile()
                             }
                             val fos = FileOutputStream(file)
