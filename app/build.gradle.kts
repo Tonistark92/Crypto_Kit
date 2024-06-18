@@ -21,8 +21,20 @@ android {
             useSupportLibrary = true
         }
        val  properties = Properties()
-        properties.load(project.rootProject.file("local.properties").inputStream())
+//        properties.load(project.rootProject.file("local.properties").inputStream())
+        properties.load(project.rootProject.file("keys.properties").inputStream())
         buildConfigField("String","API_KEY", "\"${properties.getProperty("API_KEY")}\"")
+
+        // for meinfest place holder
+//        val mapsKeyFile = project.rootProject.file("mapskey.properties")
+//        val properties = Properties()
+//        properties.load(mapsKeyFile.inputStream())
+//
+////fetch the map key
+//        val apiKey = properties.getProperty("MAPS_API_KEY") ?: ""
+//
+////inject the key dynamically into the manifest
+//        manifestPlaceholders["GOOGLE_KEY"] = apiKey
     }
 
     buildTypes {

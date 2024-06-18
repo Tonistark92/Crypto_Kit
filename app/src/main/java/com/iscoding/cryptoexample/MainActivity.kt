@@ -26,15 +26,15 @@ class MainActivity : ComponentActivity() {
         val cipherManager = CipherManager()
         // secure api key from git repos using  BuildConfig and local.properties
         val apiKey = BuildConfig.API_KEY
-        val tokenManager = TokenManager(this)
-
-// Encrypt and store the token
-        val token = "your_auth_token_here"
-        tokenManager.encryptToken(token)
+//        val tokenManager = TokenManager(this)
+//
+//// Encrypt and store the token
+//        val token = "your_auth_token_here"
+//        tokenManager.encryptToken(token)
 
 // Decrypt the token
-        val decryptedToken = tokenManager.decryptToken()
-        println("Decrypted Token: $decryptedToken")
+//        val decryptedToken = tokenManager.decryptToken()
+//        println("Decrypted Token: $decryptedToken")
         setContent {
             CryptoExampleTheme {
                 var messageToEncrypt by remember {
