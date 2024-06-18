@@ -3,6 +3,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -88,5 +89,13 @@ dependencies {
     //security
     implementation(libs.androidx.security.crypto)
     implementation(libs.androidx.security.state)
+
+    // data store
+        // preferences
+    implementation ("androidx.datastore:datastore-preferences:1.0.0-alpha04")
+    implementation ("androidx.datastore:datastore:1.0.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
+
 
 }
